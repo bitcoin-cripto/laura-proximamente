@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Laura Fernández — Próximamente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet" />
+<style>
+  :root{ --sage:#c9bde0; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{ background:var(--sage); overflow:hidden; }
+  .hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:100vh;
+    direction:rtl;
+  }
+  .copy-panel{
+    direction:ltr;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px clamp(24px,6vw,90px);
+    z-index:2;
+  }
+  .proximamente{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:clamp(2rem,4vw,3.4rem);
+    font-weight:300;
+    font-style:italic;
+    color:rgba(253,251,246,.92);
+    letter-spacing:.08em;
+  }
+  .photo-panel{
+    position:relative;
+    overflow:hidden;
+    direction:ltr;
+    -webkit-mask-image:linear-gradient(to right, black 88%, transparent 100%);
+    mask-image:linear-gradient(to right, black 88%, transparent 100%);
+  }
+  .photo-panel img{
+    width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
+  }
+  .photo-panel::before{
+    content:"";position:absolute;top:0;right:0;width:14%;height:100%;z-index:2;
+    background:linear-gradient(to left,var(--sage) 0%,transparent 100%);
+    pointer-events:none;
+  }
+  .photo-panel::after{
+    content:"";position:absolute;bottom:0;left:0;right:0;height:35%;z-index:2;
+    background:linear-gradient(to bottom,transparent 0%,var(--sage) 100%);
+    pointer-events:none;
+  }
+  @media(max-width:680px){
+    body{overflow:auto;}
+    .hero{ grid-template-columns:1fr; grid-template-rows:60vw 1fr; direction:ltr; }
+    .photo-panel{
+      order:-1;
+      -webkit-mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+      mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+    }
+    .photo-panel::before{display:none;}
+    .copy-panel{ padding:40px 32px 60px; justify-content:center; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="copy-panel">
+    <p class="proximamente">Próximamente</p>
+  </div>
+  <div class="photo-panel">
+    <img src="imgs/laura_desenfocada.png" alt="Laura Fernández" />
+  </div>
+</div>
+</body>
+</html>
